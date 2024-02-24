@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <div className="fixed top-0 w-full z-10">
-      <div className="p-2 lg:w-2/3 mx-auto md:w-2/3 rounded mt-2 bg-opacity-20 backdrop-blur-5 shadow-md bg-gradient-to-l from-pink-300 to-orange-300">
+      <div className="p-2 lg:w-2/3 mx-auto md:w-2/3 rounded mt-2 bg-opacity-20 backdrop-blur-5 shadow-md bg-gradient-to-l from-green-300 bg- to-purple-300">
         <div className="flex justify-between items-center">
           <div>
             <Link to="/">
@@ -81,13 +81,15 @@ const NavItem = ({
   );
 };
 
-const PageContent = () => {
-  return <div className="pt-20"></div>;
-};
+// const PageContent = () => {
+//   return <div className="pt-20"></div>;
+// };
 
-export default () => (
-  <>
-    <Navbar />
-    <PageContent />
-  </>
-);
+// export default () => (
+//   <>
+//     <Navbar />
+//     <PageContent />
+//   </>
+// );
+
+export default Navbar;

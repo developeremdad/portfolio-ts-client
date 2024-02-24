@@ -1,10 +1,12 @@
-import Navbar from "../../component/shared/Navbar";
+import Navbar from "../../../component/shared/Navbar";
+import HeroSection from "./HeroSection";
 
 const Home = () => {
   return (
     <div className="">
       <Navbar />
-      <h1>
+      <HeroSection />
+      <h1 className="font-space-grotesk">
         hello Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
         repellat voluptatum voluptatem pariatur commodi non ut, corrupti eaque
         vel perspiciatis, sapiente blanditiis aspernatur quam facilis, veritatis
@@ -80,7 +82,6 @@ const Home = () => {
         quas consequuntur necessitatibus ratione tenetur nisi vel consequatur
         tempora beatae non ipsa esse qui reprehenderit similique deleniti iusto
         sequi ab! Alias nihil unde consequuntur earum excepturi voluptatem iste
-       
       </h1>
     </div>
   );
