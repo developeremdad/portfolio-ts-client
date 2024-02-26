@@ -9,7 +9,7 @@ const HeroSection = () => {
     <div className="h-100">
       <Navbar />
 
-      <div className="lg:w-9/12 container mx-auto mt-10">
+      <div className="lg:w-10/12 container mx-auto mt-10">
         <div className="lg:grid lg:grid-cols-3 md:grid md:grid-cols-1 sm:grid sm:grid-cols-1 gap-4 md:place-items-center">
           <div className="lg:order-2 lg:justify-self-end">
             <img

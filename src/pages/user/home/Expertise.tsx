@@ -5,13 +5,15 @@ import setting from "../../../assets/icons/setting.png";
 const Expertise = () => {
   return (
     <div className="mt-32">
-      <div className="bg-gradient-to-r from-pink-500 to-blue-500 bg-clip-text text-transparent">
-      <h1 className="text-4xl font-semibold text-center mb-6">My Expertise</h1>
+      <div className="container mx-auto text-4xl font-bold text-center mb-6">
+        <span className="bg-gradient-to-r from-purple-500 to-blue-300 bg-clip-text text-transparent">
+          My Expertise
+        </span>
       </div>
 
-      <div className="lg:w-9/12 container mx-auto p-5">
+      <div className="lg:w-10/12 container mx-auto p-5 grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-3">
         {/* Backend part */}
-        <div className="border rounded-md hover:shadow-lg p-4">
+        <div className="border rounded-md hover:shadow-lg p-4 hover:bg-slate-50">
           <div className="flex items-center">
             <div className="self-start">
               <img src={backend} width={50} height={50} alt="" />
@@ -55,7 +57,7 @@ const Expertise = () => {
         </div>
 
         {/* Frontend part */}
-        <div className="border rounded-md hover:shadow-lg p-4 mt-6">
+        <div className="border rounded-md hover:shadow-lg p-4  hover:bg-slate-50">
           <div className="flex items-center">
             <div className="self-start">
               <img src={frontend} width={50} height={50} alt="" />
@@ -107,7 +109,7 @@ const Expertise = () => {
         </div>
 
         {/* Others and tools */}
-        <div className="border rounded-md hover:shadow-lg p-4 mt-6">
+        <div className="border rounded-md hover:shadow-lg p-4  hover:bg-slate-50">
           <div className="flex items-center">
             <div className="self-start">
               <img src={setting} width={50} height={50} alt="" />
@@ -160,16 +162,48 @@ const Expertise = () => {
             <span className="text-sm font-bold text-gray-400">&lt;/h3&gt;</span>
           </div>
         </div>
-        {/* <div className="grid grid-cols-2 p-3">
-          <div>
-            <div className="flex items-center">
-              <img src={backend} width={50} height={50} alt="" />
-              <div className="ml-3 border-l-2 pl-3 text-2xl">
-                <span className="underline">Backend</span> Development
+
+        {/* Languages */}
+        <div className="border rounded-md hover:shadow-lg p-4 hover:bg-slate-50">
+          <div className="flex items-center">
+            <div className="self-start">
+              <img src={setting} width={50} height={50} alt="" />
+            </div>
+            <div className="">
+              <div className="text-2xl ml-3 bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent">
+                Comfortable Languages
               </div>
             </div>
           </div>
-        </div> */}
+          <div className="mt-3">
+            <div>
+              <span className="text-sm font-bold text-gray-400">
+                &lt;h3&gt;
+              </span>
+            </div>
+            <div className="border-l-2 pl-4 ml-4 text-gray-500">
+              <div className="text-sm flex flex-wrap py-2">
+                <div className="p-1 border rounded-sm mr-1 mb-1">
+                  Javascript
+                </div>
+                <div className="p-1 border rounded-sm mr-1 mb-1">
+                  Typescript
+                </div>
+                <div className="p-1 border rounded-sm mr-1 mb-1">SQL</div>
+                <div className="p-1 border rounded-sm mr-1 mb-1">C</div>
+                <div className="p-1 border rounded-sm mr-1 mb-1">C++</div>
+                <div className="p-1 border rounded-sm mr-1 mb-1">
+                  Data Structure
+                </div>
+                <div className="p-1 border rounded-sm mr-1 mb-1">Algorithm</div>
+                <div className="p-1 border rounded-sm mr-1 mb-1">OOP</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <span className="text-sm font-bold text-gray-400">&lt;/h3&gt;</span>
+          </div>
+        </div>
       </div>
     </div>
   );
