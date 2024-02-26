@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <div className="fixed top-0 w-full z-10">
-      <div className="p-2 lg:w-2/3 mx-auto md:w-2/3 rounded mt-2 bg-opacity-20 backdrop-blur-5 shadow-md bg-gradient-to-l from-green-300 bg- to-purple-300">
+      <div className="p-2 lg:w-4/6 container mx-auto px-4 rounded mt-2 bg-opacity-20 backdrop-blur-5 shadow-md bg-gradient-to-l from-blue-300 bg- to-purple-300">
         <div className="flex justify-between items-center">
           <div>
             <Link to="/">
@@ -72,8 +72,8 @@ const NavItem = ({
   count: string;
 }) => {
   return (
-    <div className="font-bold text-gray-400 mx-3">
-      <div className="text-right text-xs text-gray-500">
+    <div className="font-bold hover:text-purple-600 mx-3">
+      <div className="text-right text-xs text-purple-500">
         <small>{count}</small>
       </div>
       <Link to={path}>{label}</Link>
@@ -81,15 +81,15 @@ const NavItem = ({
   );
 };
 
-// const PageContent = () => {
-//   return <div className="pt-20"></div>;
-// };
+const PageContent = () => {
+  return <div className="pt-20"></div>;
+};
 
-// export default () => (
-//   <>
-//     <Navbar />
-//     <PageContent />
-//   </>
-// );
+export default () => (
+  <>
+    <Navbar />
+    <PageContent />
+  </>
+);
 
-export default Navbar;
+// export default Navbar;

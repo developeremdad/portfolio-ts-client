@@ -1,11 +1,12 @@
-import Navbar from "../../../component/shared/Navbar";
+import Expertise from "./Expertise";
 import HeroSection from "./HeroSection";
 
 const Home = () => {
   return (
     <div className="">
-      <Navbar />
+      {/* <Navbar /> */}
       <HeroSection />
+      <Expertise />
       <h1 className="font-space-grotesk">
         hello Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
         repellat voluptatum voluptatem pariatur commodi non ut, corrupti eaque
