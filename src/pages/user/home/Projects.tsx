@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import fastForward from "../../../assets/icons/fast-forward.gif";
+import link from "../../../assets/icons/link.png";
 import topRight from "../../../assets/icons/top-right.png";
 import image from "../../../assets/shoeZone.png";
 
@@ -14,18 +16,18 @@ const Projects = () => {
       <div className="lg:w-10/12 container mx-auto p-5">
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-4">
           {/* <!--Card 1--> */}
-          <div className="p-2 rounded overflow-hidden hover:shadow-lg hover:bg-slate-50 border grid xs:grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
+          <div className="relative cursor-pointer group p-2 rounded overflow-hidden hover:shadow-lg hover:bg-slate-50 border grid xs:grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
             <div className="xs:col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1  p-0.5">
               <img
-                className="border-pink-300 hover:border rounded mx-auto w-full"
+                className="group-hover:border-2 border-green-500 rounded mx-auto w-full"
                 src={image}
                 alt="Mountain"
               />
             </div>
             <div className="xs:col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-2 xs:mt-3 md:mt-0">
               <div className="ml-3">
-                <div className="font-bold mb-1 hover:text-green-700 hover:cursor-pointer flex items-center group">
-                  <a href="/facebook.com">Project name</a>
+                <div className="font-bold mb-1 group-hover:text-green-700 flex items-center">
+                  <span>Project name</span>
                   <img
                     src={topRight}
                     className="h-2 ml-2 group-hover:mb-2"
@@ -50,6 +52,13 @@ const Projects = () => {
                 </div>
               </div>
             </div>
+            <Link to="">
+              <img
+                src={link}
+                className="w-7 group-hover:border-2 cursor-pointer rounded-full p-1 border-green-500 absolute right-1 top-1"
+                alt=""
+              />
+            </Link>
           </div>
 
           <div className="p-2 rounded overflow-hidden hover:shadow-lg hover:bg-slate-50 border grid xs:grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
@@ -165,7 +174,9 @@ const Projects = () => {
           </div>
         </div>
         <div className="mt-6 text-2xl font-bold flex items-center justify-center hover:cursor-pointer">
-          <span className="text-purple-500 hover:text-purple-700">Explore Works</span>
+          <span className="text-purple-500 hover:text-purple-700">
+            Explore Works
+          </span>
           <img src={fastForward} className="h-6 ml-2" alt="icon" />
         </div>
       </div>
