@@ -1,4 +1,5 @@
 import Footer from "../../../component/shared/Footer";
+import Blogs from "./Blogs";
 import Contact from "./Contact";
 import Education from "./Education";
 import Experiences from "./Experiences";
@@ -16,6 +17,7 @@ const Home = () => {
       <Expertise />
       <Projects />
       <Contact />
+      <Blogs />
       <Footer />
     </div>
   );
