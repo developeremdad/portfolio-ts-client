@@ -27,8 +27,8 @@ const experiencesData = [
     ],
   },
   {
-    period: "2021 — 2022",
-    title: "Front-End Developer (Intern)",
+    period: "2022 — 2024",
+    title: "Full-Stack Developer",
     company: "Bangladesh Bridge Authority",
     description:
       "Build, style, and ship high-quality websites, design systems, mobile apps, and digital experiences for a diverse array of projects for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more. Provide leadership within engineering department through close collaboration, knowledge shares, and spearheading the development of internal tools.",
