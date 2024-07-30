@@ -1,8 +1,31 @@
-import backend from "../../../assets/icons/backend.png";
+import { useEffect, useState } from "react";
 import frontend from "../../../assets/icons/front-end.png";
+import backend from "../../../assets/icons/backend.png";
 import setting from "../../../assets/icons/setting.png";
 
+type TSkill = {
+  category: string;
+  skill: string;
+};
+
 const Expertise = () => {
+  const [skills, setSkills] = useState<TSkill[]>([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/get-skills`)
+      .then((res) => res.json())
+      .then((data) => setSkills(data?.data));
+  }, []);
+  const frontendData = skills?.filter(
+    (skill) => skill?.category === "frontend"
+  );
+  const backendData = skills?.filter((skill) => skill?.category === "backend");
+  const comfortableData = skills?.filter(
+    (skill) => skill?.category === "comfortable"
+  );
+  const otherToolsData = skills?.filter(
+    (skill) => skill?.category === "otherTools"
+  );
   return (
     <div className="mt-32">
       <div className="container mx-auto text-4xl font-bold text-center mb-6">
@@ -32,6 +55,11 @@ const Expertise = () => {
             </div>
             <div className="border-l-2 pl-4 ml-4 text-gray-500">
               <div className="text-sm flex flex-wrap py-2">
+                {backendData?.map((skill) => (
+                  <div className="p-1 border rounded-sm mr-1 mb-1 capitalize">
+                    {skill?.skill}
+                  </div>
+                ))}
                 <div className="p-1 border rounded-sm mr-1 mb-1">Node Js</div>
                 <div className="p-1 border rounded-sm mr-1 mb-1">Express</div>
                 <div className="p-1 border rounded-sm mr-1 mb-1">Mongoose</div>
@@ -76,6 +104,11 @@ const Expertise = () => {
             </div>
             <div className="border-l-2 pl-4 ml-4 text-gray-500">
               <div className="text-sm flex flex-wrap py-2">
+                {frontendData?.map((skill) => (
+                  <div className="p-1 border rounded-sm mr-1 mb-1 capitalize">
+                    {skill?.skill}
+                  </div>
+                ))}
                 <div className="p-1 border rounded-sm mr-1 mb-1">
                   Javascript
                 </div>
@@ -128,6 +161,11 @@ const Expertise = () => {
             </div>
             <div className="border-l-2 pl-4 ml-4 text-gray-500">
               <div className="text-sm flex flex-wrap py-2">
+                {otherToolsData?.map((skill) => (
+                  <div className="p-1 border rounded-sm mr-1 mb-1 capitalize">
+                    {skill?.skill}
+                  </div>
+                ))}
                 <div className="p-1 border rounded-sm mr-1 mb-1">
                   VPS Hosting
                 </div>
@@ -183,6 +221,11 @@ const Expertise = () => {
             </div>
             <div className="border-l-2 pl-4 ml-4 text-gray-500">
               <div className="text-sm flex flex-wrap py-2">
+                {comfortableData?.map((skill) => (
+                  <div className="p-1 border rounded-sm mr-1 mb-1 capitalize">
+                    {skill?.skill}
+                  </div>
+                ))}
                 <div className="p-1 border rounded-sm mr-1 mb-1">
                   Javascript
                 </div>

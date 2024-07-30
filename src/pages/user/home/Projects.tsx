@@ -1,9 +1,23 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { assets } from "../../../assets";
 import fastForward from "../../../assets/icons/fast-forward.gif";
 import link from "../../../assets/icons/link.png";
 import topRight from "../../../assets/icons/top-right.png";
 
+export interface TProject {
+  _id: string;
+  title: string;
+  description: string;
+  technologies: string[];
+  clientLive: string;
+  clientCode: string;
+  serverCode: string;
+  serverLive: string;
+  coverUrl: string;
+  imageUrls: string[];
+  date: Date;
+}
 // const data = [
 //   {
 //     id: 0,
@@ -101,6 +115,14 @@ import topRight from "../../../assets/icons/top-right.png";
 // ];
 
 const Projects = () => {
+  const [projects, setProjects] = useState<TProject[]>([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/get-projects`)
+      .then((res) => res.json())
+      .then((data) => setProjects(data?.data));
+  }, []);
+
   return (
     <div>
       <div className="container mx-auto text-4xl font-bold text-center mb-6 mt-32">
@@ -111,6 +133,62 @@ const Projects = () => {
 
       <div className="lg:w-10/12 container mx-auto p-5">
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-4">
+          {projects?.map((project) => (
+            <div className="relative cursor-pointer group p-2 rounded overflow-hidden hover:shadow-lg hover:bg-slate-50 border grid xs:grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
+              <div className="xs:col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1  p-0.5">
+                <img
+                  className="group-hover:border-2 border-green-500 rounded mx-auto w-full"
+                  src={project?.coverUrl}
+                  alt="Project Image"
+                />
+              </div>
+              <div className="xs:col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-2 xs:mt-3 md:mt-0">
+                <div className="ml-3">
+                  <div className="font-bold mb-1 group-hover:text-green-700 flex items-center">
+                    <a
+                      target="_blank"
+                      href={project?.clientLive ? project?.clientLive : ""}
+                    >
+                      {project?.title}
+                    </a>
+                    <img
+                      src={topRight}
+                      className="h-2 ml-2 group-hover:mb-2"
+                      alt="icon"
+                    />
+                  </div>
+                  <p className="text-gray-700 text-base">
+                    {project?.description}
+                  </p>
+                  <div className="py-2 flex flex-wrap">
+                    <span className="bg-green-200 rounded-full px-3 py-1 text-xs font-semibold text-green-700 hover:bg-green-300 hover:cursor-pointer mr-2 mb-2">
+                      MERN (TS)
+                    </span>
+                    <span className="bg-green-200 rounded-full px-3 py-1 text-xs font-semibold text-green-700 hover:bg-green-300 hover:cursor-pointer mr-2 mb-2">
+                      Redux
+                    </span>
+                    <span className="bg-green-200 rounded-full px-3 py-1 text-xs font-semibold text-green-700 hover:bg-green-300 hover:cursor-pointer mr-2 mb-2">
+                      Ant Design
+                    </span>
+                    <span className="bg-green-200 rounded-full px-3 py-1 text-xs font-semibold text-green-700 hover:bg-green-300 hover:cursor-pointer mr-2 mb-2">
+                      Zod
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <a
+                target="_blank"
+                href={project?.clientLive ? project?.clientLive : ""}
+              >
+                <img
+                  src={link}
+                  className="w-7 group-hover:border-2 cursor-pointer rounded-full p-1 border-green-500 absolute right-1 top-1"
+                  alt=""
+                />
+              </a>
+            </div>
+          ))}
+
           <div className="relative cursor-pointer group p-2 rounded overflow-hidden hover:shadow-lg hover:bg-slate-50 border grid xs:grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
             <div className="xs:col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1  p-0.5">
               <img
