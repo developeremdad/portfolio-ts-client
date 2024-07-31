@@ -19,11 +19,12 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="hidden sm:flex">
-            <NavItem path="/" label="Home" count="01" />
-            <NavItem path="#expertise" label="Expertise" count="01" />
-            <NavItem path="#work" label="Work" count="01" />
+            <NavItem path="/" label="Home" count="00" />
             <NavItem path="#experience" label="Experience" count="01" />
-            <NavItem path="#contact" label="Contact" count="02" />
+            <NavItem path="#expertise" label="Expertise" count="02" />
+            <NavItem path="#work" label="Work" count="03" />
+            <NavItem path="#contact" label="Contact" count="04" />
+            <NavItem path="#blog" label="Blog" count="05" />
           </div>
           <div className="sm:hidden">
             {/* Mobile menu button */}
@@ -51,11 +52,12 @@ const Navbar = () => {
 
         {/* Mobile menu */}
         <div className={`md:hidden ${isMobileMenuOpen ? "" : "hidden"}`}>
-          <NavItem path="/" label="Home" count="01" />
-          <NavItem path="#expertise" label="Expertise" count="01" />
-          <NavItem path="#work" label="Work" count="01" />
+          <NavItem path="/" label="Home" count="00" />
           <NavItem path="#experience" label="Experience" count="01" />
-          <NavItem path="#contact" label="Contact" count="02" />
+          <NavItem path="#expertise" label="Expertise" count="02" />
+          <NavItem path="#work" label="Work" count="03" />
+          <NavItem path="#contact" label="Contact" count="04" />
+          <NavItem path="#blog" label="Blog" count="05" />
         </div>
       </div>
     </div>

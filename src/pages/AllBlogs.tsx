@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import fastForward from "../../../assets/icons/fast-forward.gif";
+import Footer from "../component/shared/Footer";
+import Navbar from "../component/shared/Navbar";
 export interface TBlog {
   _id: string;
   title: string;
@@ -8,7 +9,7 @@ export interface TBlog {
   date: Date;
 }
 
-const Blogs = () => {
+const AllBlogs = () => {
   const [blogs, setBlogs] = useState<TBlog[]>([]);
 
   useEffect(() => {
@@ -18,14 +19,15 @@ const Blogs = () => {
   }, []);
   return (
     <div>
-      <section id="blog" className="py-16">
-        <div className="container mx-auto text-4xl font-bold text-center mb-6 mt-32">
+      <Navbar />
+      <div id="blog" className="my-10">
+        <div className="container mx-auto text-4xl font-bold text-center mb-6 ">
           <span className="bg-gradient-to-r from-purple-500 to-blue-300 bg-clip-text text-transparent">
             Latest Articles
           </span>
         </div>
         <div className="container mx-auto grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
-          {blogs?.slice(0, 3)?.map((blog, index) => (
+          {blogs?.map((blog, index) => (
             <div
               key={index}
               className="bg-white hover:bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow border duration-300 relative"
@@ -51,17 +53,10 @@ const Blogs = () => {
             </div>
           ))}
         </div>
-        <Link to="/blogs">
-          <div className="mt-8 text-2xl font-bold flex items-center justify-center">
-            <span className="text-purple-500 hover:text-purple-700 hover:cursor-pointer">
-              Explore Blogs
-            </span>
-            <img src={fastForward} className="h-6 ml-2" alt="icon" />
-          </div>
-        </Link>
-      </section>
+      </div>
+      <Footer />
     </div>
   );
 };
 
-export default Blogs;
+export default AllBlogs;

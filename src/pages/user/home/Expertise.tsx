@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import frontend from "../../../assets/icons/front-end.png";
 import backend from "../../../assets/icons/backend.png";
+import frontend from "../../../assets/icons/front-end.png";
 import setting from "../../../assets/icons/setting.png";
 
 type TSkill = {
@@ -55,8 +55,11 @@ const Expertise = () => {
             </div>
             <div className="border-l-2 pl-4 ml-4 text-gray-500">
               <div className="text-sm flex flex-wrap py-2">
-                {backendData?.map((skill) => (
-                  <div className="p-1 border rounded-sm mr-1 mb-1 capitalize">
+                {backendData?.map((skill, index) => (
+                  <div
+                    key={index}
+                    className="p-1 border rounded-sm mr-1 mb-1 capitalize"
+                  >
                     {skill?.skill}
                   </div>
                 ))}

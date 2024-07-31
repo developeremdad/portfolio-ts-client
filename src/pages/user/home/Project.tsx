@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { assets } from "../../../assets";
 import fastForward from "../../../assets/icons/fast-forward.gif";
 import link from "../../../assets/icons/link.png";
 import topRight from "../../../assets/icons/top-right.png";
@@ -114,7 +113,7 @@ export interface TProject {
 //   },
 // ];
 
-const Projects = () => {
+const Project = () => {
   const [projects, setProjects] = useState<TProject[]>([]);
 
   useEffect(() => {
@@ -133,15 +132,17 @@ const Projects = () => {
 
       <div className="lg:w-10/12 container mx-auto p-5">
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-4">
-          {projects?.map((project) => (
+          {projects?.slice(0, 4)?.map((project, index) => (
             <div className="relative cursor-pointer group p-2 rounded overflow-hidden hover:shadow-lg hover:bg-slate-50 border grid xs:grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
-              <div className="xs:col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1  p-0.5">
-                <img
-                  className="group-hover:border-2 border-green-500 rounded mx-auto w-full"
-                  src={project?.coverUrl}
-                  alt="Project Image"
-                />
-              </div>
+              <Link key={index} to={`/project-details/${project?._id}`}>
+                <div className="xs:col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 p-0.5 h-[200px]">
+                  <img
+                    className="group-hover:border-2 border-green-500 rounded mx-auto w-full"
+                    src={project?.coverUrl}
+                    alt="Project Image"
+                  />
+                </div>
+              </Link>
               <div className="xs:col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-2 xs:mt-3 md:mt-0">
                 <div className="ml-3">
                   <div className="font-bold mb-1 group-hover:text-green-700 flex items-center">
@@ -157,11 +158,22 @@ const Projects = () => {
                       alt="icon"
                     />
                   </div>
-                  <p className="text-gray-700 text-base">
-                    {project?.description}
-                  </p>
-                  <div className="py-2 flex flex-wrap">
-                    <span className="bg-green-200 rounded-full px-3 py-1 text-xs font-semibold text-green-700 hover:bg-green-300 hover:cursor-pointer mr-2 mb-2">
+                  <Link key={index} to={`/project-details/${project?._id}`}>
+                    <p className="text-gray-700 text-base line-clamp-3">
+                      {project?.description}
+                    </p>
+                  </Link>
+                  <Link key={index} to={`/project-details/${project?._id}`}>
+                    <div className="py-2 flex flex-wrap">
+                      {project?.technologies?.map((tec, index) => (
+                        <span
+                          key={index}
+                          className="bg-green-200 rounded-full px-3 py-1 text-xs font-semibold text-green-700 hover:bg-green-300 hover:cursor-pointer mr-2 mb-2"
+                        >
+                          {tec}
+                        </span>
+                      ))}
+                      {/* <span className="bg-green-200 rounded-full px-3 py-1 text-xs font-semibold text-green-700 hover:bg-green-300 hover:cursor-pointer mr-2 mb-2">
                       MERN (TS)
                     </span>
                     <span className="bg-green-200 rounded-full px-3 py-1 text-xs font-semibold text-green-700 hover:bg-green-300 hover:cursor-pointer mr-2 mb-2">
@@ -172,8 +184,9 @@ const Projects = () => {
                     </span>
                     <span className="bg-green-200 rounded-full px-3 py-1 text-xs font-semibold text-green-700 hover:bg-green-300 hover:cursor-pointer mr-2 mb-2">
                       Zod
-                    </span>
-                  </div>
+                    </span> */}
+                    </div>
+                  </Link>
                 </div>
               </div>
               <a
@@ -189,7 +202,7 @@ const Projects = () => {
             </div>
           ))}
 
-          <div className="relative cursor-pointer group p-2 rounded overflow-hidden hover:shadow-lg hover:bg-slate-50 border grid xs:grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
+          {/* <div className="relative cursor-pointer group p-2 rounded overflow-hidden hover:shadow-lg hover:bg-slate-50 border grid xs:grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
             <div className="xs:col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1  p-0.5">
               <img
                 className="group-hover:border-2 border-green-500 rounded mx-auto w-full"
@@ -411,17 +424,19 @@ const Projects = () => {
                 alt=""
               />
             </a>
+          </div> */}
+        </div>
+        <Link to="/projects">
+          <div className="mt-6 text-2xl font-bold flex items-center justify-center">
+            <span className="text-purple-500 hover:text-purple-700 hover:cursor-pointer">
+              Explore Works
+            </span>
+            <img src={fastForward} className="h-6 ml-2" alt="icon" />
           </div>
-        </div>
-        <div className="mt-6 text-2xl font-bold flex items-center justify-center hover:cursor-pointer">
-          <span className="text-purple-500 hover:text-purple-700">
-            Explore Works
-          </span>
-          <img src={fastForward} className="h-6 ml-2" alt="icon" />
-        </div>
+        </Link>
       </div>
     </div>
   );
 };
 
-export default Projects;
+export default Project;

@@ -5,7 +5,7 @@ import Education from "./Education";
 import Experiences from "./Experiences";
 import Expertise from "./Expertise";
 import HeroSection from "./HeroSection";
-import Projects from "./Projects";
+import Project from "./Project";
 
 const Home = () => {
   return (
@@ -15,7 +15,7 @@ const Home = () => {
       <Education />
       <Experiences />
       <Expertise />
-      <Projects />
+      <Project />
       <Contact />
       <Blogs />
       <Footer />
