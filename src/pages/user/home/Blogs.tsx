@@ -8,7 +8,7 @@ export interface TBlog {
   date: Date;
 }
 
-const Blogs = () => {
+const Blogs = ({ id }: { id: string }) => {
   const [blogs, setBlogs] = useState<TBlog[]>([]);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const Blogs = () => {
       .then((data) => setBlogs(data?.data));
   }, []);
   return (
-    <div>
+    <div id={id}>
       <section id="blog" className="py-16">
         <div className="container mx-auto text-4xl font-bold text-center mb-6 mt-32">
           <span className="bg-gradient-to-r from-purple-500 to-blue-300 bg-clip-text text-transparent">

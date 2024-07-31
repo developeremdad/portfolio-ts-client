@@ -113,7 +113,7 @@ export interface TProject {
 //   },
 // ];
 
-const Project = () => {
+const Project = ({ id }: { id: string }) => {
   const [projects, setProjects] = useState<TProject[]>([]);
 
   useEffect(() => {
@@ -123,7 +123,7 @@ const Project = () => {
   }, []);
 
   return (
-    <div>
+    <div id={id}>
       <div className="container mx-auto text-4xl font-bold text-center mb-6 mt-32">
         <span className="bg-gradient-to-r from-purple-500 to-blue-300 bg-clip-text text-transparent">
           My Works
@@ -132,9 +132,12 @@ const Project = () => {
 
       <div className="lg:w-10/12 container mx-auto p-5">
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-4">
-          {projects?.slice(0, 4)?.map((project, index) => (
-            <div className="relative cursor-pointer group p-2 rounded overflow-hidden hover:shadow-lg hover:bg-slate-50 border grid xs:grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
-              <Link key={index} to={`/project-details/${project?._id}`}>
+          {projects?.slice(0, 4)?.map((project) => (
+            <div
+              key={project?._id}
+              className="relative cursor-pointer group p-2 rounded overflow-hidden hover:shadow-lg hover:bg-slate-50 border grid xs:grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3"
+            >
+              <Link to={`/project-details/${project?._id}`}>
                 <div className="xs:col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 p-0.5 h-[200px]">
                   <img
                     className="group-hover:border-2 border-green-500 rounded mx-auto w-full"
@@ -158,12 +161,12 @@ const Project = () => {
                       alt="icon"
                     />
                   </div>
-                  <Link key={index} to={`/project-details/${project?._id}`}>
+                  <Link to={`/project-details/${project?._id}`}>
                     <p className="text-gray-700 text-base line-clamp-3">
                       {project?.description}
                     </p>
                   </Link>
-                  <Link key={index} to={`/project-details/${project?._id}`}>
+                  <Link to={`/project-details/${project?._id}`}>
                     <div className="py-2 flex flex-wrap">
                       {project?.technologies?.map((tec, index) => (
                         <span

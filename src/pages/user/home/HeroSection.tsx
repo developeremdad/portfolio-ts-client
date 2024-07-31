@@ -4,9 +4,9 @@ import linkedIn from "../../../assets/icons/linkedin.png";
 import whatsapp from "../../../assets/icons/whatsapp.png";
 import Navbar from "../../../component/shared/Navbar";
 
-const HeroSection = () => {
+const HeroSection = ({ id }: { id: string }) => {
   return (
-    <div className="h-100">
+    <div className="h-100" id={id}>
       <Navbar />
 
       <div className="lg:w-10/12 container mx-auto mt-10">

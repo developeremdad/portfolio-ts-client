@@ -1,6 +1,6 @@
 import { FaEnvelope, FaGithub, FaLinkedin, FaPhone } from "react-icons/fa";
 
-const Contact = () => {
+const Contact = ({ id }: { id: string }) => {
   const contactInfo = {
     email: "mdemdadullahahammed@gmail.com",
     phone: "01625360571",
@@ -8,7 +8,7 @@ const Contact = () => {
     github: "https://github.com/developeremdad",
   };
   return (
-    <div>
+    <div id={id}>
       <section className="py-16 mt-20 bg-gray-900 text-gray-200">
         <div className="container mx-auto text-center mb-12">
           <h2 className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">

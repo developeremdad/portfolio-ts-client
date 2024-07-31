@@ -72,7 +72,7 @@ type TExperience = {
 //   },
 // ];
 
-const Experiences = () => {
+const Experiences = ({ id }: { id: string }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [experiences, setExperiences] = useState([]);
   useEffect(() => {
@@ -86,7 +86,7 @@ const Experiences = () => {
   }, []);
   return (
     <div>
-      <section className="py-12">
+      <section className="py-12" id={id}>
         <div className="container mx-auto text-4xl font-bold text-center mb-6">
           <span className="bg-gradient-to-r from-purple-500 to-blue-300 bg-clip-text text-transparent">
             Experiences

@@ -8,7 +8,7 @@ type TSkill = {
   skill: string;
 };
 
-const Expertise = () => {
+const Expertise = ({ id }: { id: string }) => {
   const [skills, setSkills] = useState<TSkill[]>([]);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const Expertise = () => {
     (skill) => skill?.category === "otherTools"
   );
   return (
-    <div className="mt-32">
+    <div className="mt-32" id={id}>
       <div className="container mx-auto text-4xl font-bold text-center mb-6">
         <span className="bg-gradient-to-r from-purple-500 to-blue-300 bg-clip-text text-transparent">
           My Expertise
@@ -107,8 +107,11 @@ const Expertise = () => {
             </div>
             <div className="border-l-2 pl-4 ml-4 text-gray-500">
               <div className="text-sm flex flex-wrap py-2">
-                {frontendData?.map((skill) => (
-                  <div className="p-1 border rounded-sm mr-1 mb-1 capitalize">
+                {frontendData?.map((skill, index) => (
+                  <div
+                    key={index}
+                    className="p-1 border rounded-sm mr-1 mb-1 capitalize"
+                  >
                     {skill?.skill}
                   </div>
                 ))}
@@ -164,8 +167,11 @@ const Expertise = () => {
             </div>
             <div className="border-l-2 pl-4 ml-4 text-gray-500">
               <div className="text-sm flex flex-wrap py-2">
-                {otherToolsData?.map((skill) => (
-                  <div className="p-1 border rounded-sm mr-1 mb-1 capitalize">
+                {otherToolsData?.map((skill, index) => (
+                  <div
+                    key={index}
+                    className="p-1 border rounded-sm mr-1 mb-1 capitalize"
+                  >
                     {skill?.skill}
                   </div>
                 ))}
@@ -224,8 +230,11 @@ const Expertise = () => {
             </div>
             <div className="border-l-2 pl-4 ml-4 text-gray-500">
               <div className="text-sm flex flex-wrap py-2">
-                {comfortableData?.map((skill) => (
-                  <div className="p-1 border rounded-sm mr-1 mb-1 capitalize">
+                {comfortableData?.map((skill, index) => (
+                  <div
+                    key={index}
+                    className="p-1 border rounded-sm mr-1 mb-1 capitalize"
+                  >
                     {skill?.skill}
                   </div>
                 ))}

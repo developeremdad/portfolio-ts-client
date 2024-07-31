@@ -10,14 +10,13 @@ import Project from "./Project";
 const Home = () => {
   return (
     <div className="">
-      {/* <Navbar /> */}
-      <HeroSection />
+      <HeroSection id="hero" />
       <Education />
-      <Experiences />
-      <Expertise />
-      <Project />
-      <Contact />
-      <Blogs />
+      <Experiences id="experience" />
+      <Expertise id="expertise" />
+      <Project id="project" />
+      <Contact id="contact" />
+      <Blogs id="blog" />
       <Footer />
     </div>
   );
