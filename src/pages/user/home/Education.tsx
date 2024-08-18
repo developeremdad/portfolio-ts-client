@@ -1,7 +1,7 @@
 const Education = () => {
   return (
     <div>
-      <section id="education" className="py-12">
+      <section id="education" className="py-12 mt-10">
         <div className="container mx-auto text-4xl font-bold text-center mb-6">
           <span className="bg-gradient-to-r from-purple-500 to-blue-300 bg-clip-text text-transparent">
             Education

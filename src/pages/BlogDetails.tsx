@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Footer from "../component/shared/Footer";
 import Navbar from "../component/shared/Navbar";
 import Spinner from "../component/Spinner";
-import Footer from "../component/shared/Footer";
 
 interface TBlog {
   _id: string;
@@ -26,10 +26,14 @@ const BlogDetails = () => {
       });
   }, [id]);
 
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   return (
     <div>
       <Navbar />
-      <div className="my-5 px-5 h-screen">
+      <div className="my-5 px-5 py-5 min-h-screen ">
         <div className="container border mx-auto p-4 bg-white shadow-lg rounded-lg max-w-3xl">
           {!isLoading ? (
             <div>

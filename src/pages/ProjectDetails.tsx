@@ -49,10 +49,15 @@ const ProjectDetails = () => {
         setSelectedImage(data?.data?.coverUrl);
       });
   }, [id]);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   return (
     <div>
       <Navbar />
-      <div className="container mx-auto p-2 my-2 h-screen">
+      <div className="container mx-auto p-2 my-2 min-h-screen">
         <div className="flex flex-wrap bg-white shadow-lg border p-5 rounded-md overflow-hidden">
           <div className="w-full md:w-1/2">
             <img

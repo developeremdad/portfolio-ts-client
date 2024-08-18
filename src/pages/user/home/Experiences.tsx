@@ -12,66 +12,6 @@ type TExperience = {
   skills: string[];
 };
 
-// const experiencesData = [
-//   {
-//     period: "2021 — 2022",
-//     title: "Front-End Developer (Intern)",
-//     company: "Bangladesh Bridge Authority",
-//     description:
-//       "Build, style, and ship high-quality websites, design systems, mobile apps, and digital experiences for a diverse array of projects for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more. Provide leadership within engineering department through close collaboration, knowledge shares, and spearheading the development of internal tools.",
-//     skills: [
-//       "JavaScript",
-//       "TypeScript",
-//       "HTML & SCSS",
-//       "React",
-//       "Next.js",
-//       "React Native",
-//       "WordPress",
-//       "Contentful",
-//       "Node.js",
-//       "PHP",
-//     ],
-//   },
-//   {
-//     period: "2022 — 2024",
-//     title: "Full-Stack Developer",
-//     company: "Bangladesh Bridge Authority",
-//     description:
-//       "Build, style, and ship high-quality websites, design systems, mobile apps, and digital experiences for a diverse array of projects for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more. Provide leadership within engineering department through close collaboration, knowledge shares, and spearheading the development of internal tools.",
-//     skills: [
-//       "JavaScript",
-//       "TypeScript",
-//       "HTML & SCSS",
-//       "React",
-//       "Next.js",
-//       "React Native",
-//       "WordPress",
-//       "Contentful",
-//       "Node.js",
-//       "PHP",
-//     ],
-//   },
-//   {
-//     period: "2021 — 2022",
-//     title: "Front-End Developer (Intern)",
-//     company: "Bangladesh Bridge Authority",
-//     description:
-//       "Build, style, and ship high-quality websites, design systems, mobile apps, and digital experiences for a diverse array of projects for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more. Provide leadership within engineering department through close collaboration, knowledge shares, and spearheading the development of internal tools.",
-//     skills: [
-//       "JavaScript",
-//       "TypeScript",
-//       "HTML & SCSS",
-//       "React",
-//       "Next.js",
-//       "React Native",
-//       "WordPress",
-//       "Contentful",
-//       "Node.js",
-//       "PHP",
-//     ],
-//   },
-// ];
-
 const Experiences = ({ id }: { id: string }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [experiences, setExperiences] = useState([]);

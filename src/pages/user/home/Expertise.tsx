@@ -16,13 +16,16 @@ const Expertise = ({ id }: { id: string }) => {
       .then((res) => res.json())
       .then((data) => setSkills(data?.data));
   }, []);
+
   const frontendData = skills?.filter(
     (skill) => skill?.category === "frontend"
   );
+
   const backendData = skills?.filter((skill) => skill?.category === "backend");
   const comfortableData = skills?.filter(
     (skill) => skill?.category === "comfortable"
   );
+
   const otherToolsData = skills?.filter(
     (skill) => skill?.category === "otherTools"
   );
@@ -63,22 +66,6 @@ const Expertise = ({ id }: { id: string }) => {
                     {skill?.skill}
                   </div>
                 ))}
-                <div className="p-1 border rounded-sm mr-1 mb-1">Node Js</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">Express</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">Mongoose</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">MongoDB</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">Aggregate</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">JWT</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  Zod Validation
-                </div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">SQL</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  PostgreSQL
-                </div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  VPS Hosting
-                </div>
               </div>
             </div>
           </div>
@@ -115,30 +102,6 @@ const Expertise = ({ id }: { id: string }) => {
                     {skill?.skill}
                   </div>
                 ))}
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  Javascript
-                </div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  Typescript
-                </div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">React</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">Redux</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">Firebase</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  Tailwind CSS
-                </div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  Ant Design
-                </div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">Shad cn</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">Bootstrap</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">CSS3</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  React Hook Form
-                </div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  React Router Dom
-                </div>
               </div>
             </div>
           </div>
@@ -175,33 +138,6 @@ const Expertise = ({ id }: { id: string }) => {
                     {skill?.skill}
                   </div>
                 ))}
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  VPS Hosting
-                </div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">CPanel</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  Payment Gateway
-                </div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  Postman With Documenting
-                </div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  Git & GitHub
-                </div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">VS Code</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">Debugging</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">Vercel</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">Figma</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  Illustrator
-                </div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">MS Office</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">C</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  Data Structure
-                </div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">Algorithm</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">OOP</div>
               </div>
             </div>
           </div>
@@ -218,7 +154,7 @@ const Expertise = ({ id }: { id: string }) => {
             </div>
             <div className="">
               <div className="text-2xl ml-3 bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent">
-                Comfortable Languages
+                Comfortable
               </div>
             </div>
           </div>
@@ -238,20 +174,6 @@ const Expertise = ({ id }: { id: string }) => {
                     {skill?.skill}
                   </div>
                 ))}
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  Javascript
-                </div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  Typescript
-                </div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">SQL</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">C</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">C++</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">
-                  Data Structure
-                </div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">Algorithm</div>
-                <div className="p-1 border rounded-sm mr-1 mb-1">OOP</div>
               </div>
             </div>
           </div>

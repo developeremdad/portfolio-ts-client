@@ -1,12 +1,25 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import image from "../../assets/emdad-profile.jpeg";
+import { NavItem } from "../NavItem";
 
-const Navbar = () => {
+const NavbarContent = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleNavItemClick = (path: string) => {
+    if (window.location.pathname !== "/") {
+      navigate("/");
+    }
+    // Scroll to the section after navigating to the homepage
+    setTimeout(() => {
+      document.getElementById(path)?.scrollIntoView({ behavior: "smooth" });
+    }, 100); // Delay to ensure the navigation is complete
   };
 
   return (
@@ -14,7 +27,12 @@ const Navbar = () => {
       <div className="p-2 lg:w-4/6 container mx-auto px-4 rounded mt-2 bg-opacity-20 backdrop-blur-5 shadow-md bg-gradient-to-l from-blue-300 to-purple-300">
         <div className="flex justify-between items-center">
           <div>
-            <ScrollLink to="hero" smooth={true} duration={500}>
+            <ScrollLink
+              to="hero"
+              smooth={true}
+              duration={500}
+              onClick={() => handleNavItemClick("hero")}
+            >
               <img
                 src={image}
                 alt="Emdad"
@@ -23,12 +41,42 @@ const Navbar = () => {
             </ScrollLink>
           </div>
           <div className="hidden sm:flex">
-            <NavItem path="hero" label="Home" count="00" />
-            <NavItem path="experience" label="Experience" count="01" />
-            <NavItem path="expertise" label="Expertise" count="02" />
-            <NavItem path="project" label="Work" count="03" />
-            <NavItem path="contact" label="Contact" count="04" />
-            <NavItem path="blog" label="Blog" count="05" />
+            <NavItem
+              path="hero"
+              label="Home"
+              count="00"
+              onClick={handleNavItemClick}
+            />
+            <NavItem
+              path="experience"
+              label="Experience"
+              count="01"
+              onClick={handleNavItemClick}
+            />
+            <NavItem
+              path="expertise"
+              label="Expertise"
+              count="02"
+              onClick={handleNavItemClick}
+            />
+            <NavItem
+              path="project"
+              label="Work"
+              count="03"
+              onClick={handleNavItemClick}
+            />
+            <NavItem
+              path="contact"
+              label="Contact"
+              count="04"
+              onClick={handleNavItemClick}
+            />
+            <NavItem
+              path="blog"
+              label="Blog"
+              count="05"
+              onClick={handleNavItemClick}
+            />
           </div>
           <div className="sm:hidden">
             {/* Mobile menu button */}
@@ -56,46 +104,55 @@ const Navbar = () => {
 
         {/* Mobile menu */}
         <div className={`md:hidden ${isMobileMenuOpen ? "" : "hidden"}`}>
-          <NavItem path="hero" label="Home" count="00" />
-          <NavItem path="experience" label="Experience" count="01" />
-          <NavItem path="expertise" label="Expertise" count="02" />
-          <NavItem path="project" label="Work" count="03" />
-          <NavItem path="contact" label="Contact" count="04" />
-          <NavItem path="blog" label="Blog" count="05" />
+          <NavItem
+            path="hero"
+            label="Home"
+            count="00"
+            onClick={handleNavItemClick}
+          />
+          <NavItem
+            path="experience"
+            label="Experience"
+            count="01"
+            onClick={handleNavItemClick}
+          />
+          <NavItem
+            path="expertise"
+            label="Expertise"
+            count="02"
+            onClick={handleNavItemClick}
+          />
+          <NavItem
+            path="project"
+            label="Work"
+            count="03"
+            onClick={handleNavItemClick}
+          />
+          <NavItem
+            path="contact"
+            label="Contact"
+            count="04"
+            onClick={handleNavItemClick}
+          />
+          <NavItem
+            path="blog"
+            label="Blog"
+            count="05"
+            onClick={handleNavItemClick}
+          />
         </div>
       </div>
     </div>
   );
 };
 
-const NavItem = ({
-  path,
-  label,
-  count,
-}: {
-  path: string;
-  label: string;
-  count: string;
-}) => {
+const Navbar = () => {
   return (
-    <div className="font-bold hover:text-purple-600 mx-3 cursor-pointer">
-      <div className="text-right text-xs text-purple-500">
-        <small>{count}</small>
-      </div>
-      <ScrollLink to={path} smooth={true} duration={800}>
-        {label}
-      </ScrollLink>
-    </div>
+    <>
+      <NavbarContent />
+      <div className="pt-20"></div>
+    </>
   );
 };
 
-const PageContent = () => {
-  return <div className="pt-20"></div>;
-};
-
-export default () => (
-  <>
-    <Navbar />
-    <PageContent />
-  </>
-);
+export default Navbar;
