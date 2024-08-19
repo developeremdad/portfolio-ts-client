@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import EmptyData from "../../../component/EmptyData";
 import Spinner from "../../../component/Spinner";
 
 type TExperience = {
@@ -82,13 +83,7 @@ const Experiences = ({ id }: { id: string }) => {
             <Spinner />
           )}
 
-          {!experiences?.length && !isLoading && (
-            <div className="flex justify-center border p-5 rounded-md">
-              <h4 className="text-xl font-semibold text-gray-500">
-                Empty Data
-              </h4>
-            </div>
-          )}
+          {!experiences?.length && !isLoading && <EmptyData />}
         </div>
       </section>
     </div>

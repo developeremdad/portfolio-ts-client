@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import link from "../assets/icons/link.png";
 import topRight from "../assets/icons/top-right.png";
+import EmptyData from "../component/EmptyData";
 import Footer from "../component/shared/Footer";
 import Navbar from "../component/shared/Navbar";
 import Spinner from "../component/Spinner";
@@ -37,6 +38,10 @@ const Projects = () => {
         setProjects(data?.data);
         setIsLoading(false);
       });
+  }, []);
+
+  useEffect(() => {
+    window.scroll(0, 0);
   }, []);
 
   return (
@@ -116,6 +121,8 @@ const Projects = () => {
           ) : (
             <Spinner />
           )}
+
+          {!projects?.length && !isLoading && <EmptyData />}
         </div>
       </div>
 

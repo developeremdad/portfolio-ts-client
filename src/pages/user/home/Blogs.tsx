@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import fastForward from "../../../assets/icons/fast-forward.gif";
+import EmptyData from "../../../component/EmptyData";
 import Spinner from "../../../component/Spinner";
 export interface TBlog {
   _id: string;
@@ -69,6 +70,8 @@ const Blogs = ({ id }: { id: string }) => {
         ) : (
           <Spinner />
         )}
+
+        {!blogs?.length && !isLoading && <EmptyData />}
         <Link to="/blogs">
           <div className="mt-10 text-2xl font-bold flex items-center justify-center">
             <span className="text-purple-500 hover:text-purple-700 hover:cursor-pointer">

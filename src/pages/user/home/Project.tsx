@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import fastForward from "../../../assets/icons/fast-forward.gif";
 import link from "../../../assets/icons/link.png";
 import topRight from "../../../assets/icons/top-right.png";
+import EmptyData from "../../../component/EmptyData";
 import Spinner from "../../../component/Spinner";
 
 export interface TProject {
@@ -112,6 +113,9 @@ const Project = ({ id }: { id: string }) => {
               </div>
             ))}
           </div>
+
+          {!projects?.length && !isLoading && <EmptyData />}
+
           <Link to="/projects">
             <div className="mt-10 text-2xl font-bold flex items-center justify-center">
               <span className="text-purple-500 hover:text-purple-700 hover:cursor-pointer">

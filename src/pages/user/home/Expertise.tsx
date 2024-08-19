@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import backend from "../../../assets/icons/backend.png";
 import frontend from "../../../assets/icons/front-end.png";
 import setting from "../../../assets/icons/setting.png";
+import EmptyData from "../../../component/EmptyData";
 import Spinner from "../../../component/Spinner";
 
 type TSkill = {
@@ -78,6 +79,8 @@ const Expertise = ({ id }: { id: string }) => {
                       {skill?.skill}
                     </div>
                   ))}
+
+                  {!backendData?.length && <EmptyData />}
                 </div>
               </div>
             </div>
@@ -116,6 +119,8 @@ const Expertise = ({ id }: { id: string }) => {
                       {skill?.skill}
                     </div>
                   ))}
+
+                  {!frontendData?.length && <EmptyData />}
                 </div>
               </div>
             </div>
@@ -154,6 +159,7 @@ const Expertise = ({ id }: { id: string }) => {
                       {skill?.skill}
                     </div>
                   ))}
+                  {!otherToolsData?.length && <EmptyData />}
                 </div>
               </div>
             </div>
@@ -192,6 +198,8 @@ const Expertise = ({ id }: { id: string }) => {
                       {skill?.skill}
                     </div>
                   ))}
+
+                  {!comfortableData?.length && <EmptyData />}
                 </div>
               </div>
             </div>

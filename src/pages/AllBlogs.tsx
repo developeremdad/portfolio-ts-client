@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import EmptyData from "../component/EmptyData";
 import Footer from "../component/shared/Footer";
 import Navbar from "../component/shared/Navbar";
 import Spinner from "../component/Spinner";
@@ -28,6 +29,11 @@ const AllBlogs = () => {
         setIsLoading(false);
       });
   }, []);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   return (
     <div>
       <Navbar />
@@ -68,6 +74,7 @@ const AllBlogs = () => {
         ) : (
           <Spinner />
         )}
+        {!blogs?.length && !isLoading && <EmptyData />}
       </div>
       <Footer />
     </div>
