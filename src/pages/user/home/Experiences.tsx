@@ -17,13 +17,24 @@ const Experiences = ({ id }: { id: string }) => {
   const [experiences, setExperiences] = useState([]);
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/get-experiences`)
-      .then((res) => res.json())
+    fetch(`${import.meta.env.VITE_SERVER_URL}/get-experiences`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => {
         setIsLoading(false);
         setExperiences(data?.data);
       });
   }, []);
+
+  const formatDateByYearMonth = (date: Date | string) => {
+    const newDate = new Date(date);
+    return `${newDate.getMonth()}/${newDate.getFullYear()}`;
+  };
+
   return (
     <div>
       <section className="py-12" id={id}>
@@ -41,7 +52,9 @@ const Experiences = ({ id }: { id: string }) => {
               >
                 <div className="md:w-1/4 mb-4 md:mb-0 text-gray-400">
                   <div>
-                    {experience?.startDate} - {experience?.endDate}
+                    {`${formatDateByYearMonth(
+                      experience?.startDate
+                    )} - ${formatDateByYearMonth(experience?.endDate)}`}
                   </div>
                 </div>
                 <div className="md:w-3/4">
@@ -67,6 +80,14 @@ const Experiences = ({ id }: { id: string }) => {
             ))
           ) : (
             <Spinner />
+          )}
+
+          {!experiences?.length && !isLoading && (
+            <div className="flex justify-center border p-5 rounded-md">
+              <h4 className="text-xl font-semibold text-gray-500">
+                Empty Data
+              </h4>
+            </div>
           )}
         </div>
       </section>

@@ -18,8 +18,13 @@ const BlogDetails = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/get-blogs/${id}`)
-      .then((res) => res.json())
+    fetch(`${import.meta.env.VITE_SERVER_URL}/get-blogs/${id}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => {
         setIsLoading(false);
         setBlog(data?.data);
@@ -34,7 +39,7 @@ const BlogDetails = () => {
     <div>
       <Navbar />
       <div className="my-5 px-5 py-5 min-h-screen ">
-        <div className="container border mx-auto p-4 bg-white shadow-lg rounded-lg max-w-3xl">
+        <div className="container border mx-auto p-4 shadow-lg rounded-lg max-w-3xl">
           {!isLoading ? (
             <div>
               <h1 className="text-3xl font-bold mb-3 capitalize">
