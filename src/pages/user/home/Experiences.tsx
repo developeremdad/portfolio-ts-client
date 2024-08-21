@@ -13,6 +13,21 @@ type TExperience = {
   skills: string[];
 };
 
+const month = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
 const Experiences = ({ id }: { id: string }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [experiences, setExperiences] = useState([]);
@@ -33,7 +48,7 @@ const Experiences = ({ id }: { id: string }) => {
 
   const formatDateByYearMonth = (date: Date | string) => {
     const newDate = new Date(date);
-    return `${newDate.getMonth()}/${newDate.getFullYear()}`;
+    return `${month[newDate.getMonth()]} ${newDate.getFullYear()}`;
   };
 
   return (
@@ -70,7 +85,7 @@ const Experiences = ({ id }: { id: string }) => {
                     {experience?.skills.map((skill: string, index: number) => (
                       <span
                         key={index}
-                        className="p-1 border rounded-sm mr-1 mb-1"
+                        className="p-1 border rounded-sm mr-1 mb-1 capitalize"
                       >
                         {skill}
                       </span>

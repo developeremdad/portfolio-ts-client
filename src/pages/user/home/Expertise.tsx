@@ -42,7 +42,7 @@ const Expertise = ({ id }: { id: string }) => {
     (skill) => skill?.category === "otherTools"
   );
   return (
-    <div className="mt-32" id={id}>
+    <div className="mt-20" id={id}>
       <div className="container mx-auto text-4xl font-bold text-center mb-6">
         <span className="bg-gradient-to-r from-purple-500 to-blue-300 bg-clip-text text-transparent">
           My Expertise
@@ -80,7 +80,7 @@ const Expertise = ({ id }: { id: string }) => {
                     </div>
                   ))}
 
-                  {!backendData?.length && <EmptyData />}
+                  {!backendData?.length && !isLoading && <EmptyData />}
                 </div>
               </div>
             </div>
@@ -120,7 +120,7 @@ const Expertise = ({ id }: { id: string }) => {
                     </div>
                   ))}
 
-                  {!frontendData?.length && <EmptyData />}
+                  {!frontendData?.length && !isLoading && <EmptyData />}
                 </div>
               </div>
             </div>
@@ -159,7 +159,7 @@ const Expertise = ({ id }: { id: string }) => {
                       {skill?.skill}
                     </div>
                   ))}
-                  {!otherToolsData?.length && <EmptyData />}
+                  {!otherToolsData?.length && !isLoading && <EmptyData />}
                 </div>
               </div>
             </div>
@@ -199,7 +199,7 @@ const Expertise = ({ id }: { id: string }) => {
                     </div>
                   ))}
 
-                  {!comfortableData?.length && <EmptyData />}
+                  {!comfortableData?.length && !isLoading && <EmptyData />}
                 </div>
               </div>
             </div>
