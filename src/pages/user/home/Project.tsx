@@ -60,7 +60,7 @@ const Project = ({ id }: { id: string }) => {
                 <Link to={`/project-details/${project?._id}`}>
                   <div className="xs:col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 p-0.5 h-[200px]">
                     <img
-                      className="group-hover:border-2 border-green-500 rounded mx-auto w-full"
+                      className="group-hover:border-2 border-green-500 rounded mx-auto lg:h-auto h-[200px]"
                       src={project?.coverUrl}
                       alt="Project Image"
                     />
