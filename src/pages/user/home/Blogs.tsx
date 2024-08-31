@@ -46,7 +46,7 @@ const Blogs = ({ id }: { id: string }) => {
                 key={index}
                 className="bg-white hover:bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow border duration-300 relative"
               >
-                <h3 className="text-2xl font-bold mb-2 capitalize">
+                <h3 className="text-xl font-bold mb-2 capitalize">
                   {blog?.title}
                 </h3>
                 <p className="text-gray-600 mb-4">

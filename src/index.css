@@ -32,3 +32,15 @@
     scrollbar-width: thin;
     scrollbar-color: linear-gradient(45deg, #6a1b9a, #8e24aa) #f1f1f1;
 }
+
+/* Hide scrollbar while allowing scroll */
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hidden {
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+}

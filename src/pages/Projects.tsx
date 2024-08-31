@@ -87,9 +87,15 @@ const Projects = () => {
                         />
                       </div>
                       <Link to={`/project-details/${project?._id}`}>
-                        <p className="text-gray-700 text-base line-clamp-3">
+                        {/* <p className="text-gray-700 text-base line-clamp-3">
                           {project?.description}
-                        </p>
+                        </p> */}
+                        <p
+                          className="prose text-gray-700 text-base line-clamp-3 my-2"
+                          dangerouslySetInnerHTML={{
+                            __html: project?.description || "",
+                          }}
+                        ></p>
                       </Link>
                       <Link key={index} to={`/project-details/${project?._id}`}>
                         <div className="py-2 flex flex-wrap">

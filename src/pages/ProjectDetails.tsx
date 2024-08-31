@@ -52,14 +52,14 @@ const ProjectDetails = () => {
       <div className="container mx-auto p-2 my-2 min-h-screen">
         <div className="shadow-lg border p-5 rounded-md">
           {!isLoading ? (
-            <div className="flex flex-wrap overflow-hidden">
+            <div className="flex flex-wrap">
               <div className="w-full md:w-1/2">
                 <img
                   src={selectedImage}
                   alt={project?.title}
                   className="w-full h-auto object-cover object-center border border-green-300 rounded"
                 />
-                <div className="flex mt-4 space-x-2 justify-center">
+                <div className="flex mt-4 space-x-2 justify-center overflow-x-scroll pb-4 scrollbar-hidden">
                   {project?.imageUrls &&
                     [project?.coverUrl, ...project.imageUrls]?.map(
                       (url, index) => (
@@ -138,8 +138,15 @@ const ProjectDetails = () => {
                 )}
                 <p className="text-gray-700 mb-4">
                   <b>Description</b>
-                  <br />
-                  {project?.description}
+                  <hr className="border border-1 mb-2" />
+                  {/* {project?.description} */}
+
+                  <div
+                    className="prose text-gray-700"
+                    dangerouslySetInnerHTML={{
+                      __html: project?.description || "",
+                    }}
+                  ></div>
                 </p>
               </div>
             </div>

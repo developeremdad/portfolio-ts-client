@@ -69,9 +69,9 @@ const Contact = ({ id }: { id: string }) => {
               Feel free to reach out to me via phone, LinkedIn, or GitHub. I’m
               always open to discussing new projects or opportunities.
             </p>
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div className="flex items-center">
-                <FaEnvelope size={20} className="text-green-400 mr-4" />
+                <FaEnvelope size={20} className="text-green-400 mr-2" />
                 <a
                   href={`mailto:${contactInfo.email}`}
                   className="hover:underline overflow-auto"
@@ -80,7 +80,7 @@ const Contact = ({ id }: { id: string }) => {
                 </a>
               </div>
               <div className="flex items-center">
-                <FaPhoneAlt size={20} className="text-green-400 mr-4" />
+                <FaPhoneAlt size={20} className="text-green-400 mr-2" />
                 <a
                   href={`tel:${contactInfo.phone}`}
                   className="hover:underline"
@@ -89,7 +89,7 @@ const Contact = ({ id }: { id: string }) => {
                 </a>
               </div>
               <div className="flex items-center">
-                <FaLinkedin size={20} className="text-green-400 mr-4" />
+                <FaLinkedin size={20} className="text-green-400 mr-2" />
                 <a
                   href="https://www.linkedin.com/in/mdemdadullah"
                   target="_blank"
@@ -100,7 +100,7 @@ const Contact = ({ id }: { id: string }) => {
                 </a>
               </div>
               <div className="flex items-center">
-                <FaGithub size={20} className="text-green-400 mr-4" />
+                <FaGithub size={20} className="text-green-400 mr-2" />
                 <a
                   href="https://github.com/developeremdad"
                   target="_blank"
