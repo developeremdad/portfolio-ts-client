@@ -30,8 +30,8 @@ const Blogs = ({ id }: { id: string }) => {
   }, []);
   return (
     <div id={id}>
-      <section id="blog" className="py-16">
-        <div className="container mx-auto text-4xl font-bold text-center mb-6 mt-32">
+      <section id="blog" className="mb-20">
+        <div className="container mx-auto text-4xl font-bold text-center mb-10 mt-32">
           <Link to="/blogs">
             {" "}
             <span className="bg-gradient-to-r from-purple-500 to-blue-300 bg-clip-text text-transparent">
@@ -40,8 +40,8 @@ const Blogs = ({ id }: { id: string }) => {
           </Link>
         </div>
         {!isLoading ? (
-          <div className="container mx-auto grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
-            {blogs?.slice(0, 3)?.map((blog, index) => (
+          <div className="lg:w-10/12 container mx-auto grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4">
+            {blogs?.slice(0, 4)?.map((blog, index) => (
               <div
                 key={index}
                 className="bg-white hover:bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow border duration-300 relative"
@@ -53,7 +53,7 @@ const Blogs = ({ id }: { id: string }) => {
                   {new Date(blog?.date)?.toLocaleDateString()}
                 </p>
                 <div
-                  className="text-gray-700 mb-8 line-clamp-2 prose"
+                  className="text-gray-700 mb-8 line-clamp-3 prose"
                   dangerouslySetInnerHTML={{ __html: blog?.content }}
                 ></div>
                 <div className="text-end absolute bottom-3 right-4">

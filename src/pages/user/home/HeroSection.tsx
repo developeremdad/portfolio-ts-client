@@ -31,7 +31,7 @@ const HeroSection = ({ id }: { id: string }) => {
             <h4 className="text-2xl font-semibold mb-2">
               Full-Stack Web <span className="hover:underline">Developer</span>
             </h4>
-            <div className="flex">
+            <div className="flex my-3">
               <a
                 href="http://"
                 target="_blank"

@@ -97,7 +97,7 @@ const Project = ({ id }: { id: string }) => {
                         {project?.technologies?.map((tec, index) => (
                           <span
                             key={index}
-                            className="bg-green-200 rounded-full px-3 py-1 text-xs font-semibold text-green-700 hover:bg-green-300 hover:cursor-pointer mr-2 mb-2"
+                            className="bg-green-200 capitalize rounded-full px-3 py-1 text-xs font-semibold text-green-700 hover:bg-green-300 hover:cursor-pointer mr-2 mb-2"
                           >
                             {tec}
                           </span>

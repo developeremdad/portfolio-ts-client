@@ -80,7 +80,7 @@ const Experiences = ({ id }: { id: string }) => {
                       · {experience?.organization}
                     </span>
                   </h3>
-                  <p className="mt-2">{experience?.description}</p>
+                  <p className="my-2">{experience?.description}</p>
                   <div className="text-gray-500 text-sm flex flex-wrap py-2">
                     {experience?.skills.map((skill: string, index: number) => (
                       <span

@@ -16,10 +16,10 @@ const Education = () => {
                 <div className="text-2xl bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent">
                   B.Sc(Hons) in Computer Science And Engineering(CSE)
                 </div>
-                <div className="text-gray-600">
+                <div className="text-gray-600 mt-2">
                   National University Bangladesh
                 </div>
-                <div className="text-gray-600">2018 - 2022</div>
+                <div className="text-gray-600 my-1">2018 - 2022</div>
                 <div className="text-gray-600">
                   3.30 <small className="text-[10px]">CGPA</small>
                 </div>
@@ -34,8 +34,8 @@ const Education = () => {
                 <div className="text-2xl bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent">
                   Complete Web Development Course With Jhankar Mahbub
                 </div>
-                <div className="text-gray-600">Programming Hero</div>
-                <div className="text-gray-600">2021 - 2022</div>
+                <div className="text-gray-600 mt-2">Programming Hero</div>
+                <div className="text-gray-600 my-1">2021 - 2022</div>
                 <div className="text-gray-600">
                   100% <small className="text-[10px]">Marks</small>
                 </div>
@@ -49,8 +49,8 @@ const Education = () => {
                 <div className="text-2xl bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent">
                   HSC In Science Group
                 </div>
-                <div className="text-gray-600">Dhaka City College</div>
-                <div className="text-gray-600">2017</div>
+                <div className="text-gray-600 mt-2">Dhaka City College</div>
+                <div className="text-gray-600 my-1">2017</div>
                 <div className="text-gray-600">
                   4.25 <small className="text-[10px]">GPA</small>
                 </div>
@@ -64,8 +64,10 @@ const Education = () => {
                 <div className="text-2xl bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent">
                   Dakhil In Science Group
                 </div>
-                <div className="text-gray-600">Akbar Al Ulum Alim Madrasha</div>
-                <div className="text-gray-600">2015</div>
+                <div className="text-gray-600 mt-2">
+                  Akbar Al Ulum Alim Madrasha
+                </div>
+                <div className="text-gray-600 my-1">2015</div>
                 <div className="text-gray-600">
                   5.00 (Golden) <small className="text-[10px]">GPA</small>
                 </div>

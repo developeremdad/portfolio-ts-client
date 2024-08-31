@@ -1,6 +1,12 @@
 import emailjs from "emailjs-com";
 import { useState } from "react";
-import { FaEnvelope, FaGithub, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaFacebook,
+  FaGithub,
+  FaLinkedin,
+  FaPhoneAlt,
+} from "react-icons/fa";
 
 const Contact = ({ id }: { id: string }) => {
   const contactInfo = {
@@ -69,45 +75,56 @@ const Contact = ({ id }: { id: string }) => {
               Feel free to reach out to me via phone, LinkedIn, or GitHub. I’m
               always open to discussing new projects or opportunities.
             </p>
-            <div className="space-y-3">
-              <div className="flex items-center">
+            <div className="space-y-2">
+              <div className="flex items-center ">
                 <FaEnvelope size={20} className="text-green-400 mr-2" />
                 <a
                   href={`mailto:${contactInfo.email}`}
-                  className="hover:underline overflow-auto"
+                  className="hover:underline overflow-auto hover:text-green-400"
                 >
                   {contactInfo.email}
                 </a>
               </div>
-              <div className="flex items-center">
+              <div className="flex items-center ">
                 <FaPhoneAlt size={20} className="text-green-400 mr-2" />
                 <a
                   href={`tel:${contactInfo.phone}`}
-                  className="hover:underline"
+                  className="hover:underline hover:text-green-400"
                 >
                   {contactInfo.phone}
                 </a>
               </div>
-              <div className="flex items-center">
+              <div className="flex items-center ">
                 <FaLinkedin size={20} className="text-green-400 mr-2" />
                 <a
                   href="https://www.linkedin.com/in/mdemdadullah"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:underline"
+                  className="hover:underline hover:text-green-400"
                 >
                   LinkedIn Profile
                 </a>
               </div>
-              <div className="flex items-center">
+              <div className="flex items-center ">
                 <FaGithub size={20} className="text-green-400 mr-2" />
                 <a
                   href="https://github.com/developeremdad"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:underline"
+                  className="hover:underline hover:text-green-400"
                 >
                   GitHub Profile
+                </a>
+              </div>
+              <div className="flex items-center ">
+                <FaFacebook size={20} className="text-green-400 mr-2" />
+                <a
+                  href="https://web.facebook.com/emdadullah101"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline hover:text-green-400"
+                >
+                  Facebook
                 </a>
               </div>
             </div>
