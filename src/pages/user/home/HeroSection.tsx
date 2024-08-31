@@ -73,7 +73,7 @@ const HeroSection = ({ id }: { id: string }) => {
                 href="https://drive.google.com/file/d/1NVKH6o7pNBl9k8mkobZNLA0hmtKGrtQy/view"
                 target="_blank"
                 role="button"
-                className="relative inline-flex items-center justify-center px-7 py-1 text-base font-semibold text-white transition-all duration-200 bg-gray-900 border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 hover:bg-purple-600 rounded"
+                className="relative inline-flex items-center justify-center px-7 py-1 text-base font-semibold text-white transition-all duration-200 bg-gray-900 border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 hover:bg-purple-600 rounded animate-pulse"
               >
                 Resume
               </a>

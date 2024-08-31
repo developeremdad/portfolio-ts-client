@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import backend from "../../../assets/icons/backend.png";
 import frontend from "../../../assets/icons/front-end.png";
@@ -41,23 +42,65 @@ const Expertise = ({ id }: { id: string }) => {
   const otherToolsData = skills?.filter(
     (skill) => skill?.category === "otherTools"
   );
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <div className="mt-20" id={id}>
-      <div className="container mx-auto text-4xl font-bold text-center mb-6">
+      <motion.div
+        className="container mx-auto text-4xl font-bold text-center mb-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={containerVariants}
+      >
         <span className="bg-gradient-to-r from-purple-500 to-blue-300 bg-clip-text text-transparent">
           My Expertise
         </span>
-      </div>
+      </motion.div>
 
       {!isLoading ? (
-        <div className="lg:w-10/12 container mx-auto p-5 grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-3">
+        <motion.div
+          className="lg:w-10/12 container mx-auto p-5 grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-3"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+        >
           {/* Backend part */}
-          <div className="border rounded-md hover:shadow-lg p-4 hover:bg-slate-50">
+          <motion.div
+            className="border rounded-md hover:shadow-lg p-4 hover:bg-slate-50"
+            variants={itemVariants}
+          >
             <div className="flex items-center">
               <div className="self-start">
                 <img src={backend} width={50} height={50} alt="" />
               </div>
-              <div className="">
+              <div>
                 <div className="text-2xl ml-3 bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent">
                   <span className="underline">Backend</span> (TS)
                 </div>
@@ -89,15 +132,18 @@ const Expertise = ({ id }: { id: string }) => {
                 &lt;/h3&gt;
               </span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Frontend part */}
-          <div className="border rounded-md hover:shadow-lg p-4  hover:bg-slate-50">
+          <motion.div
+            className="border rounded-md hover:shadow-lg p-4 hover:bg-slate-50"
+            variants={itemVariants}
+          >
             <div className="flex items-center">
               <div className="self-start">
                 <img src={frontend} width={50} height={50} alt="" />
               </div>
-              <div className="">
+              <div>
                 <div className="text-2xl ml-3 bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent">
                   <span className="underline">Frontend</span> (TS)
                 </div>
@@ -129,15 +175,18 @@ const Expertise = ({ id }: { id: string }) => {
                 &lt;/h3&gt;
               </span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Others and tools */}
-          <div className="border rounded-md hover:shadow-lg p-4  hover:bg-slate-50">
+          <motion.div
+            className="border rounded-md hover:shadow-lg p-4 hover:bg-slate-50"
+            variants={itemVariants}
+          >
             <div className="flex items-center">
               <div className="self-start">
                 <img src={setting} width={50} height={50} alt="" />
               </div>
-              <div className="">
+              <div>
                 <div className="text-2xl ml-3 bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent">
                   <span className="underline">Other</span> Tools
                 </div>
@@ -168,15 +217,18 @@ const Expertise = ({ id }: { id: string }) => {
                 &lt;/h3&gt;
               </span>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Languages */}
-          <div className="border rounded-md hover:shadow-lg p-4 hover:bg-slate-50">
+          {/* Comfortable */}
+          <motion.div
+            className="border rounded-md hover:shadow-lg p-4 hover:bg-slate-50"
+            variants={itemVariants}
+          >
             <div className="flex items-center">
               <div className="self-start">
                 <img src={setting} width={50} height={50} alt="" />
               </div>
-              <div className="">
+              <div>
                 <div className="text-2xl ml-3 bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent">
                   Comfortable
                 </div>
@@ -208,8 +260,8 @@ const Expertise = ({ id }: { id: string }) => {
                 &lt;/h3&gt;
               </span>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       ) : (
         <Spinner />
       )}

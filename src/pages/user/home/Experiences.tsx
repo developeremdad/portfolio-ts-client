@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import EmptyData from "../../../component/EmptyData";
 import Spinner from "../../../component/Spinner";
@@ -30,7 +31,8 @@ const month = [
 
 const Experiences = ({ id }: { id: string }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [experiences, setExperiences] = useState([]);
+  const [experiences, setExperiences] = useState<TExperience[]>([]);
+
   useEffect(() => {
     setIsLoading(true);
     fetch(`${import.meta.env.VITE_SERVER_URL}/get-experiences`)
@@ -51,20 +53,59 @@ const Experiences = ({ id }: { id: string }) => {
     return `${month[newDate.getMonth()]} ${newDate.getFullYear()}`;
   };
 
+  // Animation variants for the heading
+  const headingVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  // Animation variants for the experience items
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.2,
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    }),
+  };
+
   return (
     <div>
       <section className="py-12" id={id}>
-        <div className="container mx-auto text-4xl font-bold text-center mb-6">
+        <motion.div
+          className="container mx-auto text-4xl font-bold text-center mb-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={headingVariants}
+        >
           <span className="bg-gradient-to-r from-purple-500 to-blue-300 bg-clip-text text-transparent">
             Experiences
           </span>
-        </div>
+        </motion.div>
+
         <div className="lg:w-10/12 container mx-auto p-5">
           {!isLoading ? (
-            experiences?.map((experience: TExperience, index) => (
-              <div
+            experiences?.map((experience, index) => (
+              <motion.div
                 key={index}
-                className=" border hover:shadow-lg hover:bg-slate-50 rounded-lg  p-6 flex flex-col md:flex-row mb-4"
+                className="border hover:shadow-lg hover:bg-slate-50 rounded-lg p-6 flex flex-col md:flex-row mb-4"
+                custom={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={itemVariants}
               >
                 <div className="md:w-1/4 mb-4 md:mb-0 text-gray-400">
                   <div>
@@ -82,9 +123,9 @@ const Experiences = ({ id }: { id: string }) => {
                   </h3>
                   <p className="my-2">{experience?.description}</p>
                   <div className="text-gray-500 text-sm flex flex-wrap py-2">
-                    {experience?.skills.map((skill: string, index: number) => (
+                    {experience?.skills.map((skill, skillIndex) => (
                       <span
-                        key={index}
+                        key={skillIndex}
                         className="p-1 border rounded-sm mr-1 mb-1 capitalize"
                       >
                         {skill}
@@ -92,7 +133,7 @@ const Experiences = ({ id }: { id: string }) => {
                     ))}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))
           ) : (
             <Spinner />

@@ -1,4 +1,5 @@
 import emailjs from "emailjs-com";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import {
   FaEnvelope,
@@ -24,8 +25,7 @@ const Contact = ({ id }: { id: string }) => {
 
   const [isSent, setIsSent] = useState(false);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleChange = (e: { target: { name: any; value: any } }) => {
+  const handleChange = (e: { target: { name: string; value: string } }) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -61,7 +61,12 @@ const Contact = ({ id }: { id: string }) => {
 
   return (
     <div id={id}>
-      <div className="py-12 mt-20 bg-gray-50">
+      <motion.div
+        className="py-12 mt-20 bg-gray-50"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <div className="container mx-auto text-4xl font-bold text-center mb-5">
           <span className="bg-gradient-to-r from-purple-500 to-blue-300 bg-clip-text text-transparent">
             Contact Me
@@ -69,69 +74,75 @@ const Contact = ({ id }: { id: string }) => {
         </div>
         <div className="lg:w-10/12 container mx-auto p-5 px-4 lg:flex lg:justify-between">
           {/* Personal Info Column */}
-          <div className="lg:w-1/2 mb-8 lg:mb-0 pr-4">
+          <motion.div
+            className="lg:w-1/2 mb-8 lg:mb-0 pr-4"
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="text-xl font-bold mb-4">Contact Information</h2>
             <p className="mb-5">
               Feel free to reach out to me via phone, LinkedIn, or GitHub. I’m
               always open to discussing new projects or opportunities.
             </p>
             <div className="space-y-2">
-              <div className="flex items-center ">
-                <FaEnvelope size={20} className="text-green-400 mr-2" />
-                <a
-                  href={`mailto:${contactInfo.email}`}
-                  className="hover:underline overflow-auto hover:text-green-400"
+              {Object.entries(contactInfo).map(([key, value]) => (
+                <motion.div
+                  key={key}
+                  className="flex items-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
                 >
-                  {contactInfo.email}
-                </a>
-              </div>
-              <div className="flex items-center ">
-                <FaPhoneAlt size={20} className="text-green-400 mr-2" />
-                <a
-                  href={`tel:${contactInfo.phone}`}
-                  className="hover:underline hover:text-green-400"
-                >
-                  {contactInfo.phone}
-                </a>
-              </div>
-              <div className="flex items-center ">
-                <FaLinkedin size={20} className="text-green-400 mr-2" />
-                <a
-                  href="https://www.linkedin.com/in/mdemdadullah"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline hover:text-green-400"
-                >
-                  LinkedIn Profile
-                </a>
-              </div>
-              <div className="flex items-center ">
-                <FaGithub size={20} className="text-green-400 mr-2" />
-                <a
-                  href="https://github.com/developeremdad"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline hover:text-green-400"
-                >
-                  GitHub Profile
-                </a>
-              </div>
-              <div className="flex items-center ">
-                <FaFacebook size={20} className="text-green-400 mr-2" />
-                <a
-                  href="https://web.facebook.com/emdadullah101"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline hover:text-green-400"
-                >
-                  Facebook
-                </a>
-              </div>
+                  {key === "email" && (
+                    <FaEnvelope size={20} className="text-green-400 mr-2" />
+                  )}
+                  {key === "phone" && (
+                    <FaPhoneAlt size={20} className="text-green-400 mr-2" />
+                  )}
+                  {key === "linkedin" && (
+                    <FaLinkedin size={20} className="text-green-400 mr-2" />
+                  )}
+                  {key === "github" && (
+                    <FaGithub size={20} className="text-green-400 mr-2" />
+                  )}
+                  {key === "facebook" && (
+                    <FaFacebook size={20} className="text-green-400 mr-2" />
+                  )}
+                  <a
+                    href={
+                      key === "email"
+                        ? `mailto:${value}`
+                        : key === "phone"
+                        ? `tel:${value}`
+                        : value
+                    }
+                    target={
+                      key === "linkedin" || key === "github"
+                        ? "_blank"
+                        : undefined
+                    }
+                    rel="noopener noreferrer"
+                    className="hover:underline hover:text-green-400"
+                  >
+                    {key === "email" && value}
+                    {key === "phone" && value}
+                    {key === "linkedin" && "LinkedIn Profile"}
+                    {key === "github" && "GitHub Profile"}
+                    {key === "facebook" && "Facebook"}
+                  </a>
+                </motion.div>
+              ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Email Form Column */}
-          <div className="lg:w-1/2">
+          <motion.div
+            className="lg:w-1/2"
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="text-xl font-bold mb-4">Send Me a Message</h2>
 
             <form onSubmit={handleSubmit} className="space-y-2">
@@ -176,7 +187,6 @@ const Contact = ({ id }: { id: string }) => {
                   value={formData.message}
                   onChange={handleChange}
                   className="w-full p-2 border border-gray-300 rounded"
-                  // rows="5"
                   required
                 ></textarea>
               </div>
@@ -192,9 +202,9 @@ const Contact = ({ id }: { id: string }) => {
                 Send Message
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import EmptyData from "../component/EmptyData";
@@ -44,11 +45,19 @@ const AllBlogs = () => {
           </span>
         </div>
         {!isLoading ? (
-          <div className="container mx-auto grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
+          <motion.div
+            className="container mx-auto grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
             {blogs?.map((blog, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="bg-white hover:bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow border duration-300 relative"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <h3 className="text-2xl font-bold mb-2 capitalize">
                   {blog?.title}
@@ -68,9 +77,9 @@ const AllBlogs = () => {
                     Read More
                   </Link>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         ) : (
           <Spinner />
         )}
