@@ -109,9 +109,11 @@ const Experiences = ({ id }: { id: string }) => {
               >
                 <div className="md:w-1/4 mb-4 md:mb-0 text-gray-400">
                   <div>
-                    {`${formatDateByYearMonth(
-                      experience?.startDate
-                    )} - ${formatDateByYearMonth(experience?.endDate)}`}
+                    {`${formatDateByYearMonth(experience?.startDate)} - ${
+                      experience?.endDate
+                        ? formatDateByYearMonth(experience?.endDate)
+                        : "Running"
+                    }`}
                   </div>
                 </div>
                 <div className="md:w-3/4">
