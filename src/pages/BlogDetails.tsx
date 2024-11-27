@@ -39,7 +39,7 @@ const BlogDetails = () => {
     <div>
       <Navbar />
       <div className="my-5 px-5 py-5 min-h-screen ">
-        <div className="container border mx-auto p-4 shadow-lg rounded-lg max-w-3xl">
+        <div className="container border mx-auto p-4 shadow-lg rounded-lg max-w-4xl">
           {!isLoading ? (
             <div>
               <h1 className="text-2xl font-bold mb-3 capitalize">
@@ -49,7 +49,7 @@ const BlogDetails = () => {
                 {new Date(blog?.date || "").toLocaleDateString()}
               </p>
               <div
-                className="prose"
+                className="prose p-5"
                 dangerouslySetInnerHTML={{ __html: blog?.content || "" }}
               ></div>
             </div>
